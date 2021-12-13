@@ -1,8 +1,11 @@
 import cities from 'cities.json';
+import { card } from './html-elements';
+import displayWeather from './weather';
 
 function showCities(city) {
   const countryList = document.querySelector('.country-list');
   countryList.innerHTML = '';
+
   const citiesToShow = cities
     .filter((each) => each.name.toLowerCase() === city.toLowerCase());
 
@@ -10,20 +13,11 @@ function showCities(city) {
     citiesToShow.forEach((element) => {
       const cityCard = document.createElement('div');
       cityCard.classList.add('city-card');
-      cityCard.innerHTML = `
-      <div class="country-details">
-        <p>${element.name}, ${element.country} 
-          <span>
-            <img class="flag" src="https://flagcdn.com/${element.country.toLowerCase()}.svg" width="30">
-          </span>
-        </p>
-      </div>
-      <div class="lat-and-long">
-        <p>Latitude: ${element.lat}</p>
-        <p>Longitude: ${element.lng}</p>
-      </div>
-      `;
+      cityCard.innerHTML = card(element);
       countryList.appendChild(cityCard);
+      cityCard.addEventListener('click', () => {
+        displayWeather(element.lat, element.lng);
+      });
     });
   } else {
     const errorMessage = document.createElement('div');
