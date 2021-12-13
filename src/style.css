@@ -15,17 +15,39 @@ body {
   gap: 18px;
 }
 
+button {
+  cursor: pointer;
+}
+
 .country-list {
   display: grid;
-  grid-template-columns: repeat(6,6fr);
+  grid-template-columns: repeat(5,5fr);
   gap: 8px;
 }
 
 .city-card {
+  width: 100%;
   border: 1px rgba(165,165,165,0.5) solid;
   border-radius: 3px;
   padding: 4px 8px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.error-message {
+  color: rgba(165,165,165,0.85);
+  grid-column-start: 3;
+  grid-column-end: 4;
+  font-size: 1.5em;
+}
+
+.flag {
+  border: 1px solid rgba(165,165,165,0.5);
+}
+
+.lat-and-long {
+  color: slategray;
+  font-size: 0.67em;
 }
 
