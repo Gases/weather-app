@@ -14,11 +14,14 @@ const card = function (element) {
     `;
 };
 
-const weatherConditions = function (data) {
+const weatherConditions = function (data, city, country) {
   const temperature = data.current.temp - 273.15;
+  const currentConditions = `${data.current.weather[0].description.charAt(0).toUpperCase()}${data.current.weather[0].description.slice(1)}`
 
   return `
+    <p>${city}, ${country}</p>
     <p>Temperature: ${temperature.toFixed(0)}°C</p>
+    <p>Current conditions: ${currentConditions}</p>
   `;
 };
 

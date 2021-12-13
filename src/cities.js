@@ -16,7 +16,7 @@ function showCities(city) {
       cityCard.innerHTML = card(element);
       countryList.appendChild(cityCard);
       cityCard.addEventListener('click', () => {
-        displayWeather(element.lat, element.lng);
+        displayWeather(element.lat, element.lng, element.name, element.country);
       });
     });
   } else {

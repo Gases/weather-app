@@ -1,6 +1,6 @@
 import { weatherConditions } from './html-elements';
 
-async function displayWeather(latitude, longitude) {
+async function displayWeather(latitude, longitude, city, country) {
   const countryList = document.querySelector('.country-list');
   countryList.innerHTML = '';
 
@@ -11,7 +11,8 @@ async function displayWeather(latitude, longitude) {
   console.log(weatherData);
 
   const weatherDisplay = document.createElement('div');
-  weatherDisplay.innerHTML = weatherConditions(weatherData);
+  weatherDisplay.classList.add('current-weather');
+  weatherDisplay.innerHTML = weatherConditions(weatherData, city, country);
   countryList.appendChild(weatherDisplay);
 }
 
